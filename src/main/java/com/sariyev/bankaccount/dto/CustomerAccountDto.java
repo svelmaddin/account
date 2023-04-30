@@ -6,8 +6,8 @@ import java.util.Set;
 
 public record CustomerAccountDto(
         String id,
-        Set<TransactionDto> transactions,
         BigDecimal balance,
+        Set<TransactionDto> transactions,
         LocalDateTime creationDate
 ) {
 }

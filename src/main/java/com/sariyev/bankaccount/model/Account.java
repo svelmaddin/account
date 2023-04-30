@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Account {
     private Customer customer;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Transaction> transactions;
+    private Set<Transaction> transactions = new HashSet<>();
 
     public Account() {
     }
@@ -46,6 +47,14 @@ public class Account {
         this.creationDate = creationDate;
         this.customer = customer;
         this.transactions = transactions;
+    }
+
+    public Account(BigDecimal balance ,
+                   LocalDateTime creationDate,
+                   Customer customer){
+    this.balance=balance;
+    this.creationDate=creationDate;
+    this.customer=customer;
     }
 
     public String getId() {

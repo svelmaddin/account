@@ -44,6 +44,13 @@ public class Transaction {
         this.transactionDate = transactionDate;
         this.account = account;
     }
+    public Transaction(BigDecimal amount ,
+                       Account account){
+        this.amount = amount;
+        this.transactionType = TransactionType.INITIAL;
+        this.transactionDate = LocalDateTime.now();
+        this.account = account;
+    }
 
     public String getId() {
         return id;
