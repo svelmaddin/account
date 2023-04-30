@@ -28,33 +28,12 @@ public class Account {
     public Account() {
     }
 
-    public Account(String id, BigDecimal balance,
-                   LocalDateTime creationDate,
-                   Customer customer,
-                   Set<Transaction> transactions) {
-        this.id = id;
-        this.balance = balance;
-        this.creationDate = creationDate;
-        this.customer = customer;
-        this.transactions = transactions;
-    }
-
     public Account(BigDecimal balance,
                    LocalDateTime creationDate,
-                   Customer customer,
-                   Set<Transaction> transactions) {
+                   Customer customer) {
         this.balance = balance;
         this.creationDate = creationDate;
         this.customer = customer;
-        this.transactions = transactions;
-    }
-
-    public Account(BigDecimal balance ,
-                   LocalDateTime creationDate,
-                   Customer customer){
-    this.balance=balance;
-    this.creationDate=creationDate;
-    this.customer=customer;
     }
 
     public String getId() {
@@ -69,32 +48,16 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
     public LocalDateTime getCreationDate() {
         return creationDate;
-    }
-
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public Set<Transaction> getTransactions() {
         return transactions;
-    }
-
-    public void setTransactions(Set<Transaction> transactions) {
-        this.transactions = transactions;
     }
 
     @Override
@@ -102,7 +65,11 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(id, account.id) && Objects.equals(balance, account.balance) && Objects.equals(creationDate, account.creationDate) && Objects.equals(customer, account.customer) && Objects.equals(transactions, account.transactions);
+        return Objects.equals(id, account.id)
+                && Objects.equals(balance, account.balance)
+                && Objects.equals(creationDate, account.creationDate)
+                && Objects.equals(customer, account.customer)
+                && Objects.equals(transactions, account.transactions);
     }
 
     @Override

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public record TransactionDto(
         String id,
-        TransactionType transactionType ,
+        TransactionType transactionType,
         BigDecimal amount,
         LocalDateTime transactionDate
 ) {

@@ -12,7 +12,8 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerDtoConverter converter;
 
-    public CustomerService(CustomerRepository customerRepository, CustomerDtoConverter converter) {
+    public CustomerService(CustomerRepository customerRepository,
+                           CustomerDtoConverter converter) {
         this.customerRepository = customerRepository;
         this.converter = converter;
     }
@@ -23,8 +24,7 @@ public class CustomerService {
                         () -> new CustomerNotFoundException("Customer could not find by id: " + id));
     }
 
-
     public CustomerDto getCustomerById(String customerId) {
-       return converter.convertToCustomerDto(findCustomerByID(customerId));
+        return converter.convertToCustomerDto(findCustomerByID(customerId));
     }
 }
